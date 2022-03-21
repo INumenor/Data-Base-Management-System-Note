@@ -1,0 +1,180 @@
+1.Hafta
+Ders:
+
+Dosyalarda toplanan veri topluluklarıdır.
+ Veri ve Bilgi Nedir
+Ham bilgilere veri denir.
+Henüz işlenmemiştir, işendikten sonra bilgi olur
+Veritabanı Sistemi = Veritabanı + VTYS + Kullanıcılar
+Veritabanı = Ham veri + metadata(ilişkiler ve veri karkteistikleri)
+VTYS = Veritabanı yapısını yöneten , verilere erişmi saglayan yazılımlardır.
+
+Lab :
+
+SqlServer 2014 kur 
+Bilgisayarı tamamen sql temizle ve reset at
+
+SqlServer kur 
+Management kur
+
+Hizmetlerden(Services) den SQL database ismini kontrol et ismin başına .\ koy be sisteme bağlan.
+Database bölümünden yeni bir database oluştur ve Dilini Turhish_CI_AS'ı seç ve kur
+
+Database içinde tablo yarattıktan sonra tablonun PK için kullanılacak bölümü yoksa ID ya da KODU bölümü ekle
+
+//Eğer tabloyu kayıt edemiyorsan :
+Design yetkisi vermek için Tools>Options>Designers>Table and Database Designers Prevent saving changes that .... tikini kaldır
+
+Tablo colums yaratıldıktan sonra PK vericeğimiz değer için alt taraftan Identity Specification bölümünden (Is Identity) yes yapınız.
+
+
+Ödev//
+Dersler(Dersin adı,Bölüm ,Dersin dönemi )
+SeçilenDersler(OgrenciNo,AçılanDerslerden(ID))
+AçılanDersler(Derslersden(dersin kodu), kontenjan , öğretmenin adı , hangi derslik)
+Bu üç tabloyu yarat ve bölümlerini belirle.
+
+
+2.Hafta 
+Ders
+İlişkiler ve Bağlantılar
+Sql dili ile yazılır.
+Sql Engine : Komutları derleyicidir.
+
+Varlık İlişki Modeli(ER):
+
+Chan : Tablolar dikdörtgen içerisinde tabloların isimleri aralarındaki bağlantıyı paralel kenar ile simge edilir.
+Bu sistemde "1" tek anlamındadır. Harfler ise çok anlamındadır. (Bire çok ile ifade edilir.) 
+Primary Keylerin altı çizilir .
+İlişki Alanını göstermez. (Bağlantılar açık şekilde gösterilmez)
+
+
+Crow's Foot : Yukarıya tablonun adı altına ise alanları(colums) bölümleri yazılır. Aradaki çizgiye ise ilişki yazılır.
+Bu sistemde 1 için iki çizgi kullanılır . Üçlü çizgi ise çok anlamına gelmektedir.
+Primary Key Columsların solunda belirtilir.
+Bu sistemde içi boş daireler hem olma ihtimali var hem de yok demektir.
+
+Veritabanı Tasarım Aşamaları :
+Gereksinimlerin Analizi (Gerçek dünya problemine ilişkin listesindeki iş kurallarını belirlenmesi)
+Kavramsal Tasarım (Varlık-İlişki veri modelinin cıkarılması)
+Mantıksal Tasarım (Hangi tablo hangisiyle ilişkili belirtilir.)
+İlikilerinNormalizasyonu (NF kurallarına uydururuz.3NF ulaşılmaya çalışılır)
+Veritabanı Uyarlanması (Tablo , kısıtlama yaratılması ; güvenlik ve hakların tanımlanması , ilk verilerin yüklenmesi)
+Uygulama Programı (Kullanım durumlarının belirlenmesi ve programlama)
+
+Temel Veritabanı Kavramları :
+Primary Key
+Basit Özellik: ad , soyad , cinsiyet
+Birleşik Özellik : adres(il,ilçe,postakodu)
+Çoklu Değer alabilen alanlar : film türleri (Macera , korku , aksiyon , macera-aksiyon)
+Türetilmiş Bilgi : Veri tabanında diğer özellikler(veri) kullanılarak oluşturulan özelliklerdir. Yeni bir veri oluşturulur. Dönem sonu not ort hesaplanması örnektir.
+
+Tablo Arasında İlişkiler :
+
+Teke Tek (1-1)
+Öğrenci bölüm ilişkisi
+Teke çok ilişki(1 -> N)
+Öğretmen ders ilişkisi
+Çoka çok ilişki (M -> N)
+Öğrenci ders ilişkisi
+
+Zayıf/Güçlü İlişki
+Zayıf İlişki : Bir Vertabanında olan ilişki her zaman geçerli değilse
+Güçlü İlişki : Bir Vertabanında ola ilişki her zaman olmak zorunda ise
+
+Sınav Sorusu :
+İlişki Diyagramı çiz.
+
+3.Hafta
+
+Normalizasyon:
+Veri tabanı aşamasında ,veri tekrarını , veri kaybını ve veri yetersizliği önlemek için 
+Nf kurallarına sırayla uyulmalılıdır. NF1 , NF2 , NF3 sırasında uygulanmalıdır.
+
+Normalizasyon Amacı : 
+Veri Bütünlüğünü sağlamak 
+Uygulamadan Bağımsızlık
+Performans Arttırmak
+
+NF1:
+Tekrarlanan sütun yapısı olmaması gerekir.
+Birden fazla bilgi tek bir sütunda olamaz.
+Aynı tür bilgiyi özel karakterlerle aynı sütun içinde tutamazsın. (Örn. TelefonNumarası)
+
+NF1 Sorunları :
+Veri Ekleme , veri daha önce kayıt edilmişmi kontrol edilmeli
+Veri Güncelleme 
+Veri Silme
+
+NF2:
+PK(Primary Key) bulundurmalı
+
+NF3:
+Anahtar olmayan sütunlar anahtar olan sütunlara tam bağımlı olmalı .
+
+Veri Bütünlüğü:
+-Yanlış ya da ilişkisiz verilerin veri tabanına girilmesini engellemek
+-Farklı tablolara dağıtılan verilerin kendi içerisinde tutarlılık göstermesidir.
+
+Hafta 4 :
+
+Ders: 
+Case-Sensitive
+
+DDL(Data Definition Language) : Yapısal İşlemler 
+
+DML(Data Manipulation Language ) : Veri üzerinde sorgulama ,yeni kayıt , güncelleme işlemleri için kullanılır.
+
+Select Komutu :
+
+Select * From tabloadi
+
+"*" anlamı bütün alanları getir demektir.
+
+Select Distinct : Tekrar eden kayıtları bir kere ve geri kalan alanları getirir.
+
+Select Count : Tablodaki , sorgudaki gelecek olan kayıt sayısını size verecek olan işlemdir.
+
+Count Distinct : ...
+
+Where komutu :
+
+Select alan1,alan2,.... From tabloadi Where koşul(lar) : Belirlenen koşullara göre kayıtların gelmesi için kullanılır.
+
+Koşul operatörleri : Slayt 3.Hafta 11 sayfa
+
+..
+..
+..
+
+AND Komutu : Birden fazla koşul aynı anda geçerli olucaksa kullanılır.
+
+Select * From tabloadi Where koşul1 AND koşul2 
+
+OR Komutu : Koşullardan birisinin doğru olması yeterli ise kullanılır.
+
+Select * From tabloadi Where koşul1 OR koşul2 
+
+Not Komutu : Koşulu olumsuza çevirir .
+
+Select * From tabloadi Where NOT Adi IN (‘Ali’,’Ahmet’)
+
+Order by komutu : Gelen kayıtları sıralamak için kullanılır .
+
+Select * From tabloadi Order By alan1,alan2
+
+Order by - asc komutu :Gelen kayıtları bir alana göre küçükten büyüğe sıralamak için kullanılır.
+
+Select * From tabloadi Order By alan1 asc
+
+Order by - desc komutu: Gelen kayıtları bir alana göre büyükten küçüğe  sıralamak için kullanılır.
+
+Select * From tabloadi Order By alan1 desc
+
+Asc - desc birlişik kullanımı : Aynı anda birden çok alana göre, farklı şekillerde(K->B veya B->K) sıralayabiliriz.
+
+Select * From tabloadi Order By alan1 desc, alan2 asc
+
+
+
+ 
